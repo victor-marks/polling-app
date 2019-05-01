@@ -47,12 +47,12 @@ if (chartContainer) {
   // Enable pusher logging - don't include this in production
   Pusher.logToConsole = true;
 
-  var pusher = new Pusher('6c2650c378f249adb331', {
+  let pusher = new Pusher('6c2650c378f249adb331', {
     cluster: 'us3',
     forceTLS: true
   });
 
-  var channel = pusher.subscribe('os-poll');
+  let channel = pusher.subscribe('os-poll');
   channel.bind('os-vote', function(data) {
     dataPoints = dataPoints.map(votes => {
       if (votes.label == data.os) {
